@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/set_lenguage/{lang}', 'Controller@set_lenguage')->name('set_lenguage');
+
+Route::redirect('/', 'home', 302);
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

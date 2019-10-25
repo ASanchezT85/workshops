@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Language;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -35,10 +36,12 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            Language::class,
         ],
 
         'api' => [
             'throttle:60,1',
+            'localization',
             'bindings',
         ],
     ];
@@ -61,6 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'localization' => \App\Http\Middleware\localization::class,
+        'has.role' => \Caffeinated\Shinobi\Middleware\UserHasRole::class,
     ];
 
     /**

@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('login',      'Auth\PassportController@login');
+Route::post('register',   'Auth\PassportController@register');
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('me',              'Auth\PassportController@details');
+    Route::get('logout',          'Auth\PassportController@logout');
 });
