@@ -2,6 +2,7 @@
 
 use App\Models\Course\Course;
 use App\Models\Course\Barnner;
+use App\Models\Course\Workshop;
 use Illuminate\Database\Seeder;
 use Caffeinated\Shinobi\Models\Permission;
 
@@ -61,6 +62,34 @@ class CoursesTableSeeder extends Seeder
             ->create()
             ->each(function (Course $course) {
                 $course->barnners()->saveMany(factory(Barnner::class, 3)->create());
+
+                if ($course->state != 'INACTIVE'){
+                    $course->workshops()->saveMany(
+                        factory(Workshop::class, 5)
+                            ->create()
+                            ->each(function (Workshop $workshop){
+                                $workshop->sponsors()->attach([
+                                    rand(1,10),
+                                    rand(11,20),
+                                    rand(21,30),
+                                    rand(31,40),
+                                    rand(41,50),
+                                ]);
+                                 $workshop->users()->attach([
+                                    rand(1,10),
+                                    rand(11,20),
+                                    rand(21,30),
+                                    rand(31,40),
+                                    rand(41,50),
+                                    rand(51,60),
+                                    rand(61,70),
+                                    rand(71,80),
+                                    rand(81,90),
+                                    rand(91,100),
+                                ]);
+                            })
+                    );
+                }
             });
 
     }

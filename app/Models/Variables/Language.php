@@ -12,6 +12,6 @@ class Language extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug', 'acronym', 'flag', 'state',
+        'name', 'slug', 'acronym', 'flag', 'symbol_currency', 'state',
     ];
 }

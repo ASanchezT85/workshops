@@ -23,7 +23,6 @@ class CreateCoursesTable extends Migration
             $table->text('deception');
             $table->string('file')->nullable();
             $table->enum('state', ['ACTIVE', 'INACTIVE'])->default('INACTIVE');
-            $table->integer('space_available');
             $table->string('slug')->unique();
             $table->timestamps();
 

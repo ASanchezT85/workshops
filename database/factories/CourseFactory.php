@@ -24,6 +24,5 @@ $factory->define(Course::class, function (Faker $faker) {
         'deception'         => '[lang => '.$lang->name.'] - ' . $faker->text($maxNbChars = 200),
         'file'              => $file,
         'state'             => $faker->randomElement(['ACTIVE', 'INACTIVE']),
-        'space_available'   => $faker->randomNumber($nbDigits = 2, $strict = false)
     ];
 });

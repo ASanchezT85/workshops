@@ -27,5 +27,7 @@ class UsersTableSeeder extends Seeder
             'password'          => 'password', // password
             'type'              => User::ROOT,
         ])->assignRoles('root');
+
+        factory(User::class, 100)->create();
     }
 }

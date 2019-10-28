@@ -13,24 +13,27 @@ class LanguagesTableSeeder extends Seeder
     public function run()
     {
         Language::create([
-            'name'      => 'English',
-            'acronym'   => 'en',
-            'flag'      => 'uk.svg', 
-            'state'     => 'ACTIVE',
+            'name'              => 'English',
+            'acronym'           => 'en',
+            'flag'              => 'uk.svg',
+            'symbol_currency'   => '$',
+            'state'             => 'ACTIVE',
         ]);
 
         Language::create([
-            'name'      => 'Portuguese',
-            'acronym'   => 'pt',
-            'flag'      => 'pt.svg', 
-            'state'     => 'ACTIVE',
+            'name'              => 'Portuguese',
+            'acronym'           => 'pt',
+            'flag'              => 'pt.svg',
+            'symbol_currency'   => 'R$',
+            'state'             => 'ACTIVE',
         ]);
 
         Language::create([
-            'name'      => 'Spanish',
-            'acronym'   => 'es',
-            'flag'      => 'sp.svg', 
-            'state'     => 'ACTIVE',
+            'name'              => 'Spanish',
+            'acronym'           => 'es',
+            'flag'              => 'sp.svg',
+            'symbol_currency'   => 'S/',
+            'state'             => 'ACTIVE',
         ]);
         
     }

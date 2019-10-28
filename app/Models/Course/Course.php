@@ -3,6 +3,7 @@
 namespace App\Models\Course;
 
 use App\Models\Course\Barnner;
+use App\Models\Course\Workshop;
 use App\Models\Category\Category;
 use App\Models\Variables\Language;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +18,7 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-        'lang_id', 'category_id', 'name', 'description', 'headed_to', 'deception', 'state', 'file', 'space_available', 'slug',  
+        'lang_id', 'category_id', 'name', 'description', 'headed_to', 'deception', 'state', 'file', 'slug',  
     ];
 
     public function lang(): BelongsTo
@@ -33,5 +34,10 @@ class Course extends Model
     public function barnners(): HasMany
     {
         return $this->hasMany(Barnner::class);
+    }
+
+    public function workshops(): HasMany
+    {
+        return $this->hasMany(Workshop::class);
     }
 }

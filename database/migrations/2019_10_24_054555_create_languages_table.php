@@ -18,6 +18,7 @@ class CreateLanguagesTable extends Migration
             $table->string('name');
             $table->string('acronym')->unique()->index();
             $table->string('flag');
+            $table->string('symbol_currency');
             $table->enum('state', ['ACTIVE', 'INACTIVE'])->default('INACTIVE');
             $table->string('slug')->unique();
             $table->timestamps();
