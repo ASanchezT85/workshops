@@ -23,6 +23,7 @@ class CreateWorkshopsTable extends Migration
             $table->mediumText('duration');
             $table->mediumText('team');
             $table->mediumText('certification');
+            $table->integer('space_available');
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

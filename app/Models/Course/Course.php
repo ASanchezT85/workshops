@@ -18,7 +18,7 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-        'lang_id', 'category_id', 'name', 'description', 'headed_to', 'deception', 'state', 'file', 'slug',  
+        'lang_id', 'category_id', 'name', 'description', 'headed_to', 'deception', 'state', 'file', 'slug',
     ];
 
     public function lang(): BelongsTo

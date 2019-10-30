@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TypeDocumentsTableSeeder::class,
             CategoryTableSeeder::class,
             SponsorTableSeeder::class,
+            QuestionnaireTableSeeder::class,
         ]);
         
         $this->call([

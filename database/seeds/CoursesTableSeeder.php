@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+use App\Models\Poll\Poll;
 use App\Models\Course\Course;
 use App\Models\Course\Barnner;
 use App\Models\Course\Workshop;
@@ -58,14 +60,14 @@ class CoursesTableSeeder extends Seeder
             'description'   => 'Eliminar un curso de la base de datos.',
         ]);
 
-        factory(Course::class, 10)
+        factory(Course::class, 20)
             ->create()
             ->each(function (Course $course) {
                 $course->barnners()->saveMany(factory(Barnner::class, 3)->create());
 
                 if ($course->state != 'INACTIVE'){
                     $course->workshops()->saveMany(
-                        factory(Workshop::class, 5)
+                        factory(Workshop::class, 10)
                             ->create()
                             ->each(function (Workshop $workshop){
                                 $workshop->sponsors()->attach([
@@ -75,22 +77,19 @@ class CoursesTableSeeder extends Seeder
                                     rand(31,40),
                                     rand(41,50),
                                 ]);
-                                 $workshop->users()->attach([
-                                    rand(1,10),
-                                    rand(11,20),
-                                    rand(21,30),
-                                    rand(31,40),
-                                    rand(41,50),
-                                    rand(51,60),
-                                    rand(61,70),
-                                    rand(71,80),
-                                    rand(81,90),
-                                    rand(91,100),
-                                ]);
+
+                                $workshop->users()->saveMany(
+                                    factory(User::class, $workshop->space_available)
+                                        ->create()
+                                        ->each(function (User $user) {
+                                            factory(Poll::class, 10)->create(['user_id' => $user->id]);
+                                        })
+                                );
+
                             })
                     );
                 }
-            });
-
+            }
+        );
     }
 }
