@@ -3,7 +3,7 @@
 namespace App\Models\Poll;
 
 use App\User;
-use App\Models\Course\Workshop;
+use App\Models\Course\Course;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -15,7 +15,7 @@ class Review extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'workshop_id', 'rating', 'comment',
+        'user_id', 'course_id', 'rating', 'comment',
     ];
 
     public function user(): BelongsTo
@@ -23,8 +23,8 @@ class Review extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function workshop(): BelongsTo
+    public function course(): BelongsTo
     {
-        return $this->belongsTo(Workshop::class, 'workshop_id');
+        return $this->belongsTo(Course::class, 'course_id');
     }
 }

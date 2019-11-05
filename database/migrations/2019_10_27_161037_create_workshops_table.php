@@ -23,8 +23,11 @@ class CreateWorkshopsTable extends Migration
             $table->mediumText('duration');
             $table->mediumText('team');
             $table->mediumText('certification');
-            $table->integer('space_available');
+            $table->integer('quotas');
+            $table->enum('state', ['ACTIVE', 'INACTIVE'])->default('ACTIVE');
+            $table->string('slug')->unique();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });

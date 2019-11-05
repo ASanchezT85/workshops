@@ -18,14 +18,14 @@ class PollObserver
     {
         $user = User::findOrfail($poll->user_id);
 
-        $review = Review::where('user_id', $user->id)->where('workshop_id', $poll->workshop_id)->first();
+        $review = Review::where('user_id', $user->id)->where('course_id', $poll->workshop->course_id)->first();
 
         $pre = ($review) ? $review->rating : 0;
 
         $rating = ($pre + $poll->punctuation);
 
         $user->reviews()->updateOrCreate(
-            ['workshop_id' => $poll->workshop_id],
+            ['course_id' => $poll->workshop->course_id],
             ['rating' => (int) $rating]
         );
             

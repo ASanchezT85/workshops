@@ -17,6 +17,11 @@ class Barnner extends Model
         'course_id', 'file', 
     ];
 
+    public function pathAttachment()
+    {
+        return asset('/images/courses/' . $this->file);
+    }
+
     public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class, 'course_id');

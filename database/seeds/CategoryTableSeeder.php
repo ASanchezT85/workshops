@@ -58,7 +58,7 @@ class CategoryTableSeeder extends Seeder
 
         $category = Category::create([
             'name'          => 'SOFT SKILLS',
-            'file'          => 'categories/softskills.svg',
+            'file'          => 'softskills.svg',
             'state'         => 'ACTIVE',
         ]);
 
@@ -79,7 +79,7 @@ class CategoryTableSeeder extends Seeder
 
         $category = Category::create([
             'name'          => 'HARD SKILLS',
-            'file'          => 'categories/hardskills.svg',
+            'file'          => 'hardskills.svg',
             'state'         => 'ACTIVE',
         ]);
 

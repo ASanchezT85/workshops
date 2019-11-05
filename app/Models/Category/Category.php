@@ -18,9 +18,19 @@ class Category extends Model
         'name', 'file', 'state', 'slug',
     ];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function pathAttachment()
     {
-        return asset('/images/' . $this->file);
+        return asset('/images/categories/' . $this->file);
     }
 
     public function category_langs(): HasMany

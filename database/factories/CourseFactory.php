@@ -18,10 +18,10 @@ $factory->define(Course::class, function (Faker $faker) {
     return [
         'lang_id'           => $lang->id,
         'category_id'       => $category->id,
-        'name'              => '[lang => '.$lang->name.'] - ' . $faker->sentence($nbWords = 10, $variableNbWords = true),
-        'description'       => '[lang => '.$lang->name.'] - ' . $faker->text($maxNbChars = 200),
-        'headed_to'         => '[lang => '.$lang->name.'] - ' . $faker->text($maxNbChars = 200),
-        'deception'         => '[lang => '.$lang->name.'] - ' . $faker->text($maxNbChars = 200),
+        'name'              => $faker->sentence($nbWords = 10, $variableNbWords = true),
+        'description'       => $faker->text($maxNbChars = 200),
+        'headed_to'         => $faker->text($maxNbChars = 200),
+        'deception'         => $faker->text($maxNbChars = 200),
         'file'              => $file,
         'state'             => $faker->randomElement(['ACTIVE', 'INACTIVE']),
     ];

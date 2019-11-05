@@ -158,5 +158,134 @@ class PermissionsTableSeeder extends Seeder
             'slug'          => 'variables.destroy', 
             'description'   => 'Eliminar una variable de la base de datos',
         ]);
+
+        //Course
+        Permission::create([
+            'name'          => 'Course:List', 
+            'slug'          => 'courses.index', 
+            'description'   => 'Listar cursos',
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Create View', 
+            'slug'          => 'courses.create', 
+            'description'   => 'Ver el formulario que permite la creacion de los cursos', 
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Store', 
+            'slug'          => 'courses.store', 
+            'description'   => 'Guardar una nuevo curso en la base de datos',
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Show', 
+            'slug'          => 'courses.show', 
+            'description'   => 'Ver el detalle de un curso en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Edit View', 
+            'slug'          => 'courses.edit', 
+            'description'   => 'Ver el formulario que permite la edición de los cursos',
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Update', 
+            'slug'          => 'courses.update', 
+            'description'   => 'Permite actualizar la informacion de un curso en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Course:Destroy', 
+            'slug'          => 'courses.destroy', 
+            'description'   => 'Eliminar un curso de la base de datos.',
+        ]);
+
+        //Sponsor
+        Permission::create([
+            'name'          => 'Sponsor:List', 
+            'slug'          => 'sponsors.index', 
+            'description'   => 'Listar patrocinadores',
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Create View', 
+            'slug'          => 'sponsors.create', 
+            'description'   => 'Ver el formulario que permite la creacion de las patrocinadores', 
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Store', 
+            'slug'          => 'sponsors.store', 
+            'description'   => 'Guardar una nuevo patrocinador en la base de datos',
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Show', 
+            'slug'          => 'sponsors.show', 
+            'description'   => 'Ver el detalle de una patrocinador en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Edit View', 
+            'slug'          => 'sponsors.edit', 
+            'description'   => 'Ver el formulario que permite la edición de las patrocinadores',
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Update', 
+            'slug'          => 'sponsors.update', 
+            'description'   => 'Permite actualizar la informacion de una patrocinador en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Sponsor:Destroy', 
+            'slug'          => 'sponsors.destroy', 
+            'description'   => 'Eliminar una patrocinador de la base de datos.',
+        ]);
+
+        //Workshop
+        Permission::create([
+            'name'          => 'Workshop:List', 
+            'slug'          => 'workshops.index', 
+            'description'   => 'Listar patrocinadores',
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Create View', 
+            'slug'          => 'workshops.create', 
+            'description'   => 'Ver el formulario que permite la creacion de las patrocinadores', 
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Store', 
+            'slug'          => 'workshops.store', 
+            'description'   => 'Guardar una nuevo patrocinador en la base de datos',
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Show', 
+            'slug'          => 'workshops.show', 
+            'description'   => 'Ver el detalle de una patrocinador en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Edit View', 
+            'slug'          => 'workshops.edit', 
+            'description'   => 'Ver el formulario que permite la edición de las patrocinadores',
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Update', 
+            'slug'          => 'workshops.update', 
+            'description'   => 'Permite actualizar la informacion de una patrocinador en especifico',
+        ]);
+
+        Permission::create([
+            'name'          => 'Workshop:Destroy', 
+            'slug'          => 'workshops.destroy', 
+            'description'   => 'Eliminar una patrocinador de la base de datos.',
+        ]);
     }
 }

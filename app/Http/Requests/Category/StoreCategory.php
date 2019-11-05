@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Category;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RegisterRequest extends FormRequest
+class StoreCategory extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,10 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|string|max:255',
-            'email'         => 'required|string|unique:users,email',
-            'password'      => 'required|string|min:8|confirmed',
-            'type_document' => 'required|integer',
-            'document'      => 'required|string|unique:profiles,document',
+            'name'          => 'required|string',
+            'state'         => 'required|in:ACTIVE,INACTIVE',
+            'file'          => 'required|mimes:jpg,jpeg,png,svg',
+            'item_langs'    => 'required|array',
         ];
     }
 

@@ -19,7 +19,7 @@ class PassportController extends Controller
     {
         $user = User::create($request->all());
 
-        //$user->assignRoles('restringido');
+        $user->assignRoles('customer');
 
         $credentials = $request->only('email', 'password');
 
@@ -43,7 +43,6 @@ class PassportController extends Controller
     //login user
     public function login(LoginRequest $request)
     {
-
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {

@@ -17,6 +17,16 @@ class Sponsor extends Model
         'name', 'description', 'file', 'state', 'slug',
     ];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function pathAttachment()
     {
         return asset('/images/sponsors/' . $this->file);

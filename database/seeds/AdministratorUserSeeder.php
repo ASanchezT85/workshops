@@ -15,7 +15,7 @@ class AdministratorUserSeeder extends Seeder
     public function run()
     {
         $role = Role::create([
-            'name'          => 'Administrator',
+            'name'          => 'ADMINISTRATOR',
             'description'   => 'Administrador de la plataforma',
         ]);
 

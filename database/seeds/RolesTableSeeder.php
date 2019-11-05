@@ -14,14 +14,20 @@ class RolesTableSeeder extends Seeder
     {
         //'name', 'slug', 'description', 'special'
         Role::create([
-            'name'          => 'Root',
+            'name'          => 'ROOT',
             'description'   => 'Super Administrador',
             'special'       => 'all-access',
         ]);
 
         Role::create([
-            'name'          => 'Restringido',
+            'name'          => 'RESTRICTED',
             'description'   => 'Usuario con acceso restringido',
+            'special'       => 'no-access',
+        ]);
+
+        Role::create([
+            'name'          => 'CUSTOMER',
+            'description'   => 'Usuario de uso normal',
             'special'       => 'no-access',
         ]);
     }

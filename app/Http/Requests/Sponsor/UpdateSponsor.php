@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Sponsor;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class RegisterRequest extends FormRequest
+class UpdateSponsor extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,13 +25,16 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'          => 'required|string|max:255',
-            'email'         => 'required|string|unique:users,email',
-            'password'      => 'required|string|min:8|confirmed',
-            'type_document' => 'required|integer',
-            'document'      => 'required|string|unique:profiles,document',
+        $rules = [
+            'name'          => 'nullable|string',
+            'description'   => 'nullable|string',
+            'state'         => 'nullable|in:ACTIVE,INACTIVE',
         ];
+
+        if ($this->get('file'))
+                $rules = array_merge($rules, ['file' => 'mimes:jpg,jpeg,png,svg']);
+
+        return $rules;
     }
 
     protected function failedValidation(Validator $validator)

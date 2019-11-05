@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\Sponsor;
 use App\Models\Poll\Poll;
 use App\Models\Course\Course;
+use App\Models\Course\Workshop;
 use App\Models\Category\Category;
 use App\Models\Variables\Language;
 use Caffeinated\Shinobi\Models\Role;
@@ -19,6 +20,7 @@ use App\Observers\CourseObserver;
 use App\Observers\SponsorObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\LanguageObserver;
+use App\Observers\WorkshopObserver;
 use App\Observers\PermissionObserver;
 use App\Observers\TypeDocumentObserver;
 
@@ -58,6 +60,7 @@ class AppServiceProvider extends ServiceProvider
         Role::observe(RoleObserver::class);
         Course::observe(CourseObserver::class);
         Sponsor::observe(SponsorObserver::class);
+        Workshop::observe(WorkshopObserver::class);
         Category::observe(CategoryObserver::class);
         Language::observe(LanguageObserver::class);
         Permission::observe(PermissionObserver::class);
