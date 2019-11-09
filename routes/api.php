@@ -21,3 +21,5 @@ Route::middleware('auth:api')->group(function () {
     Route::get('logout',          'Auth\PassportController@logout');
 });
 
+Route::get('dashborard', 'DashboardController@dashborard')->name('dashborard');
+
