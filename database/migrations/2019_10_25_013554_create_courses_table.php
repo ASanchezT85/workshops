@@ -21,7 +21,7 @@ class CreateCoursesTable extends Migration
             $table->text('description');
             $table->text('headed_to');
             $table->text('deception');
-            $table->string('file')->nullable();
+            $table->longText('file')->nullable();
             $table->enum('state', ['ACTIVE', 'INACTIVE'])->default('INACTIVE');
             $table->string('slug')->unique();
             $table->timestamps();

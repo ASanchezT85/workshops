@@ -68,8 +68,13 @@ class SponsorController extends Controller
         $sponsor = Sponsor::create($request->all());
 
         if ($request->file('file')) {
-            $path = Helper::uploadFile('file', 'public/sponsors');
-            $sponsor->fill(['file' => $path])->save();
+            //$path = Helper::uploadFile('file', 'public/sponsors');
+            //$sponsor->fill(['file' => $path])->save();
+
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $base64 = base64_encode(file_get_contents($request->file('file')->path()));
+            $file = 'data:image/' . $extension . ';base64,' . $base64;
+            $sponsor->fill(['file' => $file])->save();
         }
 
         $message = __('Sponsor created successfully.');

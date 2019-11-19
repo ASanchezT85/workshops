@@ -69,8 +69,13 @@ class CourseController extends Controller
         $course = Course::create($request->all());
 
         if ($request->file('file')) {
-            $path = Helper::uploadFile('file', 'public/courses');
-            $course->fill(['file' => $path])->save();
+            //$path = Helper::uploadFile('file', 'public/courses');
+            //$course->fill(['file' => $path])->save();
+
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $base64 = base64_encode(file_get_contents($request->file('file')->path()));
+            $file = 'data:image/' . $extension . ';base64,' . $base64;
+            $course->fill(['file' => $file])->save();
         }
 
         foreach ($request->barnners as $barnner) {

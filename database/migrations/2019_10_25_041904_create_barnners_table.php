@@ -16,7 +16,7 @@ class CreateBarnnersTable extends Migration
         Schema::create('barnners', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('course_id');
-            $table->string('file')->nullable();
+            $table->longText('file')->nullable();
             $table->timestamps();
 
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

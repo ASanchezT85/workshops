@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('file')->nullable();
+            $table->text('file')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->enum('type', [User::ROOT, User::ADMIN, User::CUSTOMER])->default(User::CUSTOMER);

@@ -17,7 +17,7 @@ class CreateSponsorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->text('description');
-            $table->string('file')->nullable();
+            $table->longText('file')->nullable();
             $table->enum('state', ['ACTIVE', 'INACTIVE'])->default('INACTIVE');
             $table->string('slug')->unique();
             $table->timestamps();

@@ -68,8 +68,11 @@ class CategoryController extends Controller
         $category = Category::create($request->all());
 
         if ($request->file('file')) {
-            $path = Helper::uploadFile('file', 'public/categories');
-            $category->fill(['file' => $path])->save();
+            //$path = Helper::uploadFile('file', 'public/categories');
+            $extension = $request->file('file')->getClientOriginalExtension();
+            $base64 = base64_encode(file_get_contents($request->file('file')->path()));
+            $file = 'data:image/' . $extension . ';base64,' . $base64;
+            $category->fill(['file' => $file])->save();
         }
 
         $data = array();
@@ -185,7 +188,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        Storage::disk('public')->delete('categories/' . $category->file);
+        //Storage::disk('public')->delete('categories/' . $category->file);
 
         $category->delete();
 
@@ -210,7 +213,7 @@ class CategoryController extends Controller
         foreach ($categories as $category) {
             $data['categories'][$i]['id'] = $category->id;
             $data['categories'][$i]['name'] = $category->name;
-            $data['categories'][$i]['file'] = (is_null($category->file)) ? null : $category->pathAttachment();
+            $data['categories'][$i]['file'] = $category->file;
 
             $data['categories'][$i]['descriptions'] = array();
             $x = 0;
