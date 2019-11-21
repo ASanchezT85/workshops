@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6 mt-3" v-show="dashborards.length" v-for="dashborard in dashborards">
+        <div class="col-lg-3 col-md-6 col-sm-6 mt-1" v-show="dashborards.length" v-for="dashborard in dashborards">
             <div class="card card-stats">
                 <div class="card-header card-header-warning card-header-icon">
                     <div class="card-icon">

@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3.2",
+        "php": "^7.3",
         "caffeinated/shinobi": "^5.0",
         "caouecs/laravel-lang": "~4.0",
         "fideloper/proxy": "^4.0",

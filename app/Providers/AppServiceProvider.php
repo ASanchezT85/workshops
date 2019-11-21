@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 //Models
+use App\User;
 use App\Models\Sponsor;
 use App\Models\Poll\Poll;
 use App\Models\Course\Course;
@@ -14,6 +15,7 @@ use App\Models\Variables\TypeDocument;
 use Caffeinated\Shinobi\Models\Permission;
 
 //Observers
+use App\Observers\UserObserver;
 use App\Observers\PollObserver;
 use App\Observers\RoleObserver;
 use App\Observers\CourseObserver;
@@ -56,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         //Observer
+        User::observe(UserObserver::class);
         Poll::observe(PollObserver::class);
         Role::observe(RoleObserver::class);
         Course::observe(CourseObserver::class);

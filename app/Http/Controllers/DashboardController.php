@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Course\Course;
 use App\Models\Course\Workshop;
 use App\Models\Category\Category;
+use Illuminate\Database\QueryException;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends Controller
@@ -16,7 +17,6 @@ class DashboardController extends Controller
     {
         $data = array();
 
-        //1200 800
         $users = User::get();
         $data[0]['id'] = (int) 1;
         $data[0]['name'] = (string) __('Users');
@@ -51,7 +51,7 @@ class DashboardController extends Controller
         $data[4]['icon'] = (string) asset('images/dashboard/workshop.png', $secure = null);
         $data[4]['count'] = (int) $workshops->count();
         $data[4]['last_update'] = $workshops->last()->updated_at->format('d-M-Y');
-
+        
         return response()->json([
             'status'    => Response::HTTP_OK,
             'data'      => $data,

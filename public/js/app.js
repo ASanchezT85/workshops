@@ -37205,7 +37205,7 @@ var render = function() {
               expression: "dashborards.length"
             }
           ],
-          staticClass: "col-lg-3 col-md-6 col-sm-6 mt-3"
+          staticClass: "col-lg-3 col-md-6 col-sm-6 mt-1"
         },
         [
           _c("div", { staticClass: "card card-stats" }, [

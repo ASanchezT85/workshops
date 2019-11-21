@@ -48,16 +48,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  App\Http\Requests\Category\StoreCategory  $request
@@ -128,17 +118,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  Category $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  App\Http\Requests\Category\UpdateCategory  $request
@@ -148,15 +127,6 @@ class CategoryController extends Controller
     public function update(UpdateCategory $request, Category $category)
     {
         $category->update($request->only('name', 'state'));
-
-        if ($request->file('file')) {
-
-            Storage::disk('public')->delete('categories/' . $category->file);
-
-            $path = Helper::uploadFile('file', 'public/categories');
-
-            $category->fill(['file' => $path])->save();
-        }
 
         if ($request->item_langs) {
             foreach ($request->item_langs as $value) {
@@ -188,8 +158,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //Storage::disk('public')->delete('categories/' . $category->file);
-
         $category->delete();
 
         $success = __('Category removed successfully.');

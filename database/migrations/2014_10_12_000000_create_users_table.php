@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->enum('type', [User::ROOT, User::ADMIN, User::CUSTOMER])->default(User::CUSTOMER);
+            $table->string('slug');
         });
     }
 

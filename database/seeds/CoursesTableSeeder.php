@@ -17,14 +17,14 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Course::class, 2)
+        factory(Course::class, 20)
             ->create()
             ->each(function (Course $course) {
                 $course->barnners()->saveMany(factory(Barnner::class, 3)->create());
 
                 if ($course->state != 'INACTIVE'){
                     $course->workshops()->saveMany(
-                        factory(Workshop::class, 3)
+                        factory(Workshop::class, 5)
                             ->create()
                             ->each(function (Workshop $workshop){
                                 $workshop->sponsors()->attach([

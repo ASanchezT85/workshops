@@ -22,11 +22,10 @@
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 </head>
-<body>
-    <div id="app"
-         style="background: url({{ asset('images/bg/circuito-png-4.png') }}) no-repeat center center fixed; 
+<body style="background: url({{ asset('images/bg/circuito-png-4.png') }}) no-repeat center center fixed; 
          background-size: cover;
          width: 100%;">
+    <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

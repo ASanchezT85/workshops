@@ -26,13 +26,11 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             TypeDocumentsTableSeeder::class,
             CategoryTableSeeder::class,
-            SponsorTableSeeder::class,
             QuestionnaireTableSeeder::class,
         ]);
         
         $this->call([
             UsersTableSeeder::class,
-            CoursesTableSeeder::class
         ]);
 
         $this->call(AdministratorUserSeeder::class);

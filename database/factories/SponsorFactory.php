@@ -9,7 +9,9 @@ $factory->define(Sponsor::class, function (Faker $faker) {
     
     $type = $faker->randomElement(['abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightlife', 'fashion', 'people', 'nature', 'sports', 'technics', 'transport']);
 
-    $file = \Faker\Provider\Image::image(storage_path() . '/app/public/sponsors', 140, 140, $type, false);
+    //$file = \Faker\Provider\Image::image(storage_path() . '/app/public/sponsors', 250, 250, 'animals', false);
+
+    $file =  $faker->image(storage_path() . '/app/public/sponsors', 250, 250, null, false);
 
     $extension = pathinfo(storage_path().'/app/public/sponsors/' . $file, PATHINFO_EXTENSION);
     $data = file_get_contents(storage_path().'/app/public/sponsors/' . $file);
